@@ -96,7 +96,7 @@ function PlayGround({ toastData, setToastData }: PlayGroundProps) {
           Reset
         </VariantButton>
       </Heading>
-     //variant section 
+     
       <Section>
         <SectionTitle>Variant</SectionTitle>
         {variant.map((value) => (
@@ -109,7 +109,7 @@ function PlayGround({ toastData, setToastData }: PlayGroundProps) {
           </VariantButton>
         ))}
       </Section>
-      //color section
+     
       <Section>
         <SectionTitle>Color</SectionTitle>
         {Color.map((value) => (
