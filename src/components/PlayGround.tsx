@@ -69,7 +69,25 @@ function PlayGround({ toastData, setToastData }: PlayGroundProps) {
     const val = parseInt(e.target.value, 10) || 0;
     setToastData((prev) => ({ ...prev, autoHideDuration: val }));
   }
-
+  const variant: Array<"plain" | "outlined" | "soft" | "solid"> = [
+    "plain",
+    "outlined",
+    "soft",
+    "solid",
+  ];
+  const Color:Array<"blue"|"gray"|"red"|"green"|"yellow">=[
+    "blue",
+    "gray",
+    "red",
+    "green",
+    "yellow",
+  ]
+  const Size:Array<"sm"|"md"|"lg">=[
+    "sm",
+    "md",
+    "lg"
+  ]
+  
   return (
     <PlayGroundContainer>
       <Heading>
@@ -78,87 +96,43 @@ function PlayGround({ toastData, setToastData }: PlayGroundProps) {
           Reset
         </VariantButton>
       </Heading>
+     //variant section 
       <Section>
         <SectionTitle>Variant</SectionTitle>
-        <VariantButton
-          active={toastData.variant === "plain"}
-          onClick={() => handleVariantChange("plain")}
-        >
-          plain
-        </VariantButton>
-        <VariantButton
-          active={toastData.variant === "outlined"}
-          onClick={() => handleVariantChange("outlined")}
-        >
-          outlined
-        </VariantButton>
-        <VariantButton
-          active={toastData.variant === "soft"}
-          onClick={() => handleVariantChange("soft")}
-        >
-          soft
-        </VariantButton>
-        <VariantButton
-          active={toastData.variant === "solid"}
-          onClick={() => handleVariantChange("solid")}
-        >
-          solid
-        </VariantButton>
+        {variant.map((value) => (
+          <VariantButton
+            key={value}
+            active={toastData.variant === value}
+            onClick={() => handleVariantChange(value)}
+          >
+            {value}
+          </VariantButton>
+        ))}
       </Section>
+      //color section
       <Section>
         <SectionTitle>Color</SectionTitle>
-        <VariantButton
-          active={toastData.color === "blue"}
-          onClick={() => handleColorChange("blue")}
-        >
-          Blue
-        </VariantButton>
-        <VariantButton
-          active={toastData.color === "gray"}
-          onClick={() => handleColorChange("gray")}
-        >
-          Gray
-        </VariantButton>
-        <VariantButton
-          active={toastData.color === "red"}
-          onClick={() => handleColorChange("red")}
-        >
-          Red
-        </VariantButton>
-        <VariantButton
-          active={toastData.color === "green"}
-          onClick={() => handleColorChange("green")}
-        >
-          Green
-        </VariantButton>
-        <VariantButton
-          active={toastData.color === "yellow"}
-          onClick={() => handleColorChange("yellow")}
-        >
-          Yellow
-        </VariantButton>
+        {Color.map((value) => (
+          <VariantButton
+            key={value}
+            active={toastData.color === value}
+            onClick={() => handleColorChange(value)}
+          >
+            {value}
+          </VariantButton>
+        ))}
       </Section>
 
       <Section>
         <SectionTitle>Size</SectionTitle>
-        <VariantButton
-          active={toastData.size === "sm"}
-          onClick={() => handleSizeChange("sm")}
+        {Size.map((value)=>(
+          <VariantButton
+          active={toastData.size === value}
+          onClick={() => handleSizeChange(value)}
         >
-          sm
+          {value}
         </VariantButton>
-        <VariantButton
-          active={toastData.size === "md"}
-          onClick={() => handleSizeChange("md")}
-        >
-          md
-        </VariantButton>
-        <VariantButton
-          active={toastData.size === "lg"}
-          onClick={() => handleSizeChange("lg")}
-        >
-          lg
-        </VariantButton>
+        ))}
       </Section>
 
       <Section>
